@@ -55,6 +55,10 @@ RUN apt-get update; apt-get install -y build-essential ca-certificates libbz2-de
 RUN rm -rf /var/lib/apt/lists/* \
     && apt -y autoremove && apt autoclean && rm -rf /var/lib/apt/lists/*
 
+## Install Python packages using pip
+########
+RUN pip install -U numpy biopython matplotlib
+
 # Setup MapSeq
 ########
 ADD https://github.com/jfmrod/MAPseq/releases/download/v1.2.3/mapseq-1.2.3-linux.tar.gz /usr/local/mapseq.tar.gz
