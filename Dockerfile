@@ -106,6 +106,13 @@ RUN git clone https://github.com/DerrickWood/kraken.git /usr/local/kraken \
     && ./install_kraken.sh . \
     && ln -s /usr/local/kraken/kraken* /usr/local/bin/
 
+## Install Bowtie2
+ADD https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.3.4.3/bowtie2-2.3.4.3-linux-x86_64.zip /usr/local/bowtie2.zip
+RUN unzip /usr/local/bowtie2.zip -d /usr/local/ \
+    && chmod 777 -R /usr/local/bowtie2-2.3.4.3-linux-x86_64 \
+    && ln -s /usr/local/bowtie2-2.3.4.3-linux-x86_64/bowtie2* /usr/local/bin/ \
+    && rm /usr/local/bowtie2.zip
+
 ## Create user training
 ########
 RUN mkdir /home/training \
