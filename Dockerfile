@@ -88,8 +88,8 @@ RUN cd /usr/local/ \
     && hg clone https://bitbucket.org/biobakery/metaphlan2 \
     && chmod 777 -R /usr/local/graphlan \
     && chmod 777 -R /usr/local/metaphlan2 \
-    && chmod 777 /usr/local/bin/ITS1_parser_ITSoneDB.py
-    && chmod 777 /usr/local/bin/export2graphlan.py
+    && chmod 777 /usr/local/bin/ITS1_parser_ITSoneDB.py \
+    && chmod 777 /usr/local/bin/export2graphlan.py \
     && ln -s /usr/local/graphlan/graphlan* /usr/local/bin/ \
     && ln -s /usr/local/metaphlan2/metaphlan2.py /usr/local/bin/ \
     && ln -s /usr/local/metaphlan2/strainphlan.py /usr/local/bin/
