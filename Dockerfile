@@ -58,7 +58,8 @@ RUN rm -rf /var/lib/apt/lists/* \
 ## Install Python packages using pip
 ########
 RUN pip install -U numpy \
-    && pip install -U biopython matplotlib pysam biom-format 
+    && pip install matplotlib>=3.0.0 \
+    && pip install -U biopython pysam biom-format 
 
 # Setup MapSeq
 ########
