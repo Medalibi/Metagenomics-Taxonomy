@@ -43,7 +43,7 @@ RUN apt-get update; apt-get install -y build-essential ca-certificates libbz2-de
     libncurses5-dev libncursesw5-dev zlib1g-dev automake pkg-config unzip openjdk-8-jre-headless curl python-pip \
     git wget sudo autoconf make xml2 locales libjpeg-dev zlibc libjpeg62 libxslt1.1 nano openjdk-8-jre mercurial \
     libxcomposite1 libtiff5 libssl-dev python3 python3-dev mesa-common-dev tar python-dev sudo mercurial python-tk \
-    libcurses-ocaml-dev libgl1-mesa-dri libgl1-mesa-glx mesa-utils fcitx-frontend-qt5 libqt5gui5 openjfx \
+    libcurses-ocaml-dev libgl1-mesa-dri libgl1-mesa-glx mesa-utils fcitx-frontend-qt5 libqt5gui5 openjfx python3-tk \
     fcitx-modules fcitx-module-dbus libedit2 libxml2-dev default-jre default-jre-headless python sqlite3 \
     && update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java \
     && echo "en_GB.UTF-8 UTF-8" >> /etc/locale.gen \
@@ -57,7 +57,7 @@ RUN rm -rf /var/lib/apt/lists/* \
 
 ## Install Python packages using pip
 ########
-RUN pip install -U numpy \
+RUN pip install -U scipy numpy \
     && pip install matplotlib>=3.0.0 \
     && pip install -U biopython pysam biom-format 
 
@@ -94,7 +94,9 @@ RUN cd /usr/local/ \
     && chmod 777 /usr/local/bin/export2graphlan.py \
     && ln -s /usr/local/graphlan/graphlan* /usr/local/bin/ \
     && ln -s /usr/local/metaphlan2/metaphlan2.py /usr/local/bin/ \
-    && ln -s /usr/local/metaphlan2/strainphlan.py /usr/local/bin/
+    && ln -s /usr/local/metaphlan2/strainphlan.py /usr/local/bin/ \
+    && ln -s /usr/local/metaphlan2/utils /usr/local/bin/ \
+    && ln -s /usr/local/metaphlan2/utils/* /usr/local/bin/
     
 ## Install Megahit
 ########
